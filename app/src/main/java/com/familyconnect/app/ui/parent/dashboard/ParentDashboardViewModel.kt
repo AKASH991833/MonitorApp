@@ -76,10 +76,35 @@ class ParentDashboardViewModel(application: Application) : AndroidViewModel(appl
                     startListeningForChildStatus(child.childId)
                 }
                 startListeningForSosAlerts()
+                startListeningForNewPairedChildren()
             } catch (e: Exception) {
                 Timber.e(e, "Failed to load paired children")
             } finally {
                 _isLoading.value = false
+            }
+        }
+    }
+
+    private fun startListeningForNewPairedChildren() {
+        viewModelScope.launch {
+            try {
+                val parentId = firebaseSource.getCurrentUserId()
+                firebaseSource.listenForParentChildren(parentId).collect { snapshot ->
+                    snapshot.children.forEach { childSnapshot ->
+                        val childId = childSnapshot.key ?: return@forEach
+                        val childName = childSnapshot.child("childName").value as? String ?: return@forEach
+                        val existing = _pairedChildren.value.find { it.childId == childId }
+                        if (existing == null) {
+                            repository.addPairedChildFromNotification(childId, childName)
+                            val updated = repository.getPairedChildren()
+                            _pairedChildren.value = updated
+                            startListeningForChildStatus(childId)
+                            Timber.i("New child paired: $childName ($childId)")
+                        }
+                    }
+                }
+            } catch (e: Exception) {
+                Timber.e(e, "Failed to listen for new paired children")
             }
         }
     }

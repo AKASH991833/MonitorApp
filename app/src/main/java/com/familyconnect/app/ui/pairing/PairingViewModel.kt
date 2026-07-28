@@ -91,6 +91,7 @@ class PairingViewModel(application: Application) : AndroidViewModel(application)
                         }
                         repository.pairChild(pairingCode, childName, fcmToken)
                         val childUserId = firebaseSource.getCurrentUserId()
+                        repository.notifyParentOnPair(pairingCode.parentId, childUserId, childName)
                         getApplication<Application>()
                             .getSharedPreferences("family_connect_prefs", Context.MODE_PRIVATE)
                             .edit().putString("child_id", childUserId).apply()

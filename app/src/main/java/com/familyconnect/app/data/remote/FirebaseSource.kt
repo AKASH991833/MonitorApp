@@ -61,6 +61,7 @@ class FirebaseSource {
     fun getCommandsRef() = database.getReference("commands")
     fun getSignalingRef() = database.getReference("signaling")
     fun getSosAlertsRef() = database.getReference(Constants.SOS_ALERTS_REF)
+    fun getParentChildrenRef(parentId: String) = database.getReference("parentChildren/$parentId")
 
     suspend fun generatePairingCode(parentId: String, parentName: String, code: String = PairingCode.generateCode()): PairingCode {
         val now = System.currentTimeMillis()
@@ -181,5 +182,28 @@ class FirebaseSource {
             "status" to status
         )
         database.getReference("sessions/$sessionId").updateChildren(updateData).await()
+    }
+
+    suspend fun notifyParentOfPairedChild(parentId: String, childId: String, childName: String) {
+        val data = mapOf<String, Any>(
+            "childId" to childId,
+            "childName" to childName,
+            "pairedAt" to ServerValue.TIMESTAMP
+        )
+        database.getReference("parentChildren/$parentId/$childId").setValue(data).await()
+    }
+
+    fun listenForParentChildren(parentId: String): Flow<DataSnapshot> = callbackFlow {
+        val ref = database.getReference("parentChildren/$parentId")
+        val listener = object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                trySend(snapshot)
+            }
+            override fun onCancelled(error: DatabaseError) {
+                close(error.toException())
+            }
+        }
+        ref.addValueEventListener(listener)
+        awaitClose { ref.removeEventListener(listener) }
     }
 }

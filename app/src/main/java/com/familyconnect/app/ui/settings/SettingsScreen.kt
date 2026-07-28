@@ -168,123 +168,127 @@ fun SettingsScreen(
 
             item {
                 SectionCard(title = "Stream Settings") {
-                    Text(
-                        text = "Stream Quality",
-                        style = MaterialTheme.typography.bodyMedium,
-                        fontWeight = FontWeight.Medium
-                    )
-                    Spacer(modifier = Modifier.height(8.dp))
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        QualityOption(
-                            label = "SD (480p)",
-                            selected = streamQuality == "SD",
-                            onClick = { viewModel.setStreamQuality("SD") }
+                    if (currentRole == UserRole.PARENT) {
+                        Text(
+                            text = "Stream Quality",
+                            style = MaterialTheme.typography.bodyMedium,
+                            fontWeight = FontWeight.Medium
                         )
-                        QualityOption(
-                            label = "HD (720p)",
-                            selected = streamQuality == "HD",
-                            onClick = { viewModel.setStreamQuality("HD") }
-                        )
-                    }
-                    Spacer(modifier = Modifier.height(16.dp))
-                    Text(
-                        text = "Auto-Timeout Duration",
-                        style = MaterialTheme.typography.bodyMedium,
-                        fontWeight = FontWeight.Medium
-                    )
-                    Spacer(modifier = Modifier.height(8.dp))
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        listOf(5, 10, 15, 30).forEach { minutes ->
-                            TimeoutChip(
-                                label = "${minutes}m",
-                                selected = autoTimeout == minutes,
-                                onClick = { viewModel.setAutoTimeout(minutes) }
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            QualityOption(
+                                label = "SD (480p)",
+                                selected = streamQuality == "SD",
+                                onClick = { viewModel.setStreamQuality("SD") }
+                            )
+                            QualityOption(
+                                label = "HD (720p)",
+                                selected = streamQuality == "HD",
+                                onClick = { viewModel.setStreamQuality("HD") }
                             )
                         }
-                    }
-                    Spacer(modifier = Modifier.height(12.dp))
-                    HorizontalDivider()
-                    Spacer(modifier = Modifier.height(12.dp))
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(
-                                text = "Ambient Audio Mode",
-                                style = MaterialTheme.typography.bodyMedium
-                            )
-                            Text(
-                                text = "Audio-only monitoring (no video)",
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                        Spacer(modifier = Modifier.height(16.dp))
+                        Text(
+                            text = "Auto-Timeout Duration",
+                            style = MaterialTheme.typography.bodyMedium,
+                            fontWeight = FontWeight.Medium
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            listOf(5, 10, 15, 30).forEach { minutes ->
+                                TimeoutChip(
+                                    label = "${minutes}m",
+                                    selected = autoTimeout == minutes,
+                                    onClick = { viewModel.setAutoTimeout(minutes) }
+                                )
+                            }
+                        }
+                        Spacer(modifier = Modifier.height(12.dp))
+                        HorizontalDivider()
+                        Spacer(modifier = Modifier.height(12.dp))
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(
+                                    text = "Ambient Audio Mode",
+                                    style = MaterialTheme.typography.bodyMedium
+                                )
+                                Text(
+                                    text = "Audio-only monitoring (no video)",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                            Switch(
+                                checked = ambientAudio,
+                                onCheckedChange = { viewModel.setAmbientAudio(it) }
                             )
                         }
-                        Switch(
-                            checked = ambientAudio,
-                            onCheckedChange = { viewModel.setAmbientAudio(it) }
-                        )
                     }
                 }
             }
 
             item {
                 SectionCard(title = "Privacy & Safety") {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(
-                                text = "Share location during stream",
-                                style = MaterialTheme.typography.bodyMedium
-                            )
-                            Text(
-                                text = "Allow your location to be shared while streaming",
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
-                            )
-                        }
-                        Switch(
-                            checked = locationEnabled,
-                            onCheckedChange = { viewModel.setLocationEnabled(it) }
-                        )
-                    }
-                    Spacer(modifier = Modifier.height(12.dp))
-                    HorizontalDivider()
-                    Spacer(modifier = Modifier.height(12.dp))
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(
-                                text = "SOS Alerts",
-                                style = MaterialTheme.typography.bodyMedium
-                            )
-                            Text(
-                                text = "Show SOS panic button & alerts",
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                    if (currentRole == UserRole.CHILD) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(
+                                    text = "Share location during stream",
+                                    style = MaterialTheme.typography.bodyMedium
+                                )
+                                Text(
+                                    text = "Allow your location to be shared while streaming",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                            Switch(
+                                checked = locationEnabled,
+                                onCheckedChange = { viewModel.setLocationEnabled(it) }
                             )
                         }
-                        Switch(
-                            checked = sosEnabled,
-                            onCheckedChange = { viewModel.setSosEnabled(it) }
-                        )
+                        Spacer(modifier = Modifier.height(12.dp))
+                        HorizontalDivider()
+                        Spacer(modifier = Modifier.height(12.dp))
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(
+                                    text = "SOS Alerts",
+                                    style = MaterialTheme.typography.bodyMedium
+                                )
+                                Text(
+                                    text = "Show SOS panic button & alerts",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                            Switch(
+                                checked = sosEnabled,
+                                onCheckedChange = { viewModel.setSosEnabled(it) }
+                            )
+                        }
+                        Spacer(modifier = Modifier.height(12.dp))
+                        HorizontalDivider()
+                        Spacer(modifier = Modifier.height(12.dp))
                     }
-                    Spacer(modifier = Modifier.height(12.dp))
-                    HorizontalDivider()
-                    Spacer(modifier = Modifier.height(12.dp))
                     Text(
                         text = "Privacy Policy",
                         style = MaterialTheme.typography.bodyMedium,
@@ -299,50 +303,54 @@ fun SettingsScreen(
 
             item {
                 SectionCard(title = "Monitoring") {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(
-                                text = "App Usage Tracking",
-                                style = MaterialTheme.typography.bodyMedium
-                            )
-                            Text(
-                                text = "Track which apps your child uses",
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                    if (currentRole == UserRole.PARENT) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(
+                                    text = "App Usage Tracking",
+                                    style = MaterialTheme.typography.bodyMedium
+                                )
+                                Text(
+                                    text = "Track which apps your child uses",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                            Switch(
+                                checked = appUsageEnabled,
+                                onCheckedChange = { viewModel.setAppUsageEnabled(it) }
                             )
                         }
-                        Switch(
-                            checked = appUsageEnabled,
-                            onCheckedChange = { viewModel.setAppUsageEnabled(it) }
-                        )
+                        Spacer(modifier = Modifier.height(12.dp))
+                        HorizontalDivider()
+                        Spacer(modifier = Modifier.height(12.dp))
                     }
-                    Spacer(modifier = Modifier.height(12.dp))
-                    HorizontalDivider()
-                    Spacer(modifier = Modifier.height(12.dp))
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceBetween,
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(
-                                text = "Auto-Start Monitoring",
-                                style = MaterialTheme.typography.bodyMedium
-                            )
-                            Text(
-                                text = "Accept monitoring requests automatically",
-                                style = MaterialTheme.typography.bodySmall,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                    if (currentRole == UserRole.CHILD) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(
+                                    text = "Auto-Start Monitoring",
+                                    style = MaterialTheme.typography.bodyMedium
+                                )
+                                Text(
+                                    text = "Accept monitoring requests automatically",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                                )
+                            }
+                            Switch(
+                                checked = autoStartEnabled,
+                                onCheckedChange = { viewModel.setAutoStartEnabled(it) }
                             )
                         }
-                        Switch(
-                            checked = autoStartEnabled,
-                            onCheckedChange = { viewModel.setAutoStartEnabled(it) }
-                        )
                     }
                 }
             }

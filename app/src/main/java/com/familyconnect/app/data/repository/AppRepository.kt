@@ -237,6 +237,29 @@ class AppRepository(
         }
     }
 
+    suspend fun notifyParentOnPair(parentId: String, childId: String, childName: String) {
+        try {
+            firebaseSource.notifyParentOfPairedChild(parentId, childId, childName)
+        } catch (e: Exception) {
+            Timber.w(e, "Failed to notify parent of paired child")
+        }
+    }
+
+    suspend fun addPairedChildFromNotification(childId: String, childName: String) {
+        val existing = pairingDao.getByChildId(childId)
+        if (existing == null) {
+            val child = PairedChildEntity(
+                childId = childId,
+                childName = childName,
+                fcmToken = "",
+                isOnline = true,
+                lastSeen = System.currentTimeMillis(),
+                pairedAt = System.currentTimeMillis()
+            )
+            pairingDao.insert(child)
+        }
+    }
+
     suspend fun updateChildStatus(childId: String, isOnline: Boolean) {
         try {
             firebaseSource.updateChildOnlineStatus(childId, isOnline)

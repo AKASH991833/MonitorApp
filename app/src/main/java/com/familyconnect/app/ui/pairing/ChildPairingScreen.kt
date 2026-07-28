@@ -211,7 +211,8 @@ fun ChildPairingScreen(
 }
 
 private fun extractPairingCode(scanned: String): String {
-    val codeParam = scanned.split("&code=").lastOrNull()
+    val codeParam = scanned.split("?code=").lastOrNull()
+        ?.split("&code=")?.lastOrNull()
         ?.split("&")?.firstOrNull()
         ?.take(6)?.uppercase()?.filter { it.isLetterOrDigit() }
     if (codeParam != null && codeParam.length == 6) return codeParam

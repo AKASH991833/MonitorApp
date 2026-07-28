@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary -->
+    <color name="primary">#FF1565C0</color>
+    <color name="onPrimary">#FFFFFFFF</color>
+    <color name="primaryContainer">#FFD1E4FF</color>
+    <color name="onPrimaryContainer">#FF001D36</color>
+
+    <!-- Secondary -->
+    <color name="secondary">#FF546E7A</color>
+    <color name="onSecondary">#FFFFFFFF</color>
+    <color name="secondaryContainer">#FFCFD8DC</color>
+    <color name="onSecondaryContainer">#FF0D1F29</color>
+
+    <!-- Tertiary -->
+    <color name="tertiary">#FF6D4C41</color>
+    <color name="onTertiary">#FFFFFFFF</color>
+    <color name="tertiaryContainer">#FFFBE9E0</color>
+    <color name="onTertiaryContainer">#FF2B150A</color>
+
+    <!-- Error -->
+    <color name="error">#FFD32F2F</color>
+    <color name="onError">#FFFFFFFF</color>
+    <color name="errorContainer">#FFF9DEDC</color>
+    <color name="onErrorContainer">#FF410E0B</color>
+
+    <!-- Background & Surface -->
+    <color name="background">#FFFFFBFE</color>
+    <color name="onBackground">#FF1C1B1F</color>
+    <color name="surface">#FFFFFBFE</color>
+    <color name="onSurface">#FF1C1B1F</color>
+    <color name="surfaceVariant">#FFE7E0EC</color>
+    <color name="onSurfaceVariant">#FF49454F</color>
+
+    <!-- Outline -->
+    <color name="outline">#FF79747E</color>
+    <color name="outlineVariant">#FFCAC4D0</color>
+
+    <!-- Inverse -->
+    <color name="inverseSurface">#FF313033</color>
+    <color name="inverseOnSurface">#FFF4EFF4</color>
+    <color name="inversePrimary">#FFB3C5FF</color>
+
+    <!-- Scrim -->
+    <color name="scrim">#000000</color>
+
+    <!-- Shadow -->
+    <color name="shadow">#000000</color>
+
+    <!-- Status Colors -->
+    <color name="statusOnline">#FF4CAF50</color>
+    <color name="statusOffline">#FFFF5252</color>
+    <color name="statusConnecting">#FFFFC107</color>
+    <color name="statusActive">#FF4CAF50</color>
+    <color name="statusIdle">#FFFFC107</color>
+    <color name="statusError">#FFFF5252</color>
+
+    <!-- Dark Theme - Primary -->
+    <color name="primaryDark">#FF90CAF9</color>
+    <color name="onPrimaryDark">#FF003258</color>
+    <color name="primaryContainerDark">#FF00497D</color>
+    <color name="onPrimaryContainerDark">#FFD1E4FF</color>
+
+    <!-- Dark Theme - Secondary -->
+    <color name="secondaryDark">#FFB0BEC5</color>
+    <color name="onSecondaryDark">#FF1C313A</color>
+    <color name="secondaryContainerDark">#FF37474F</color>
+    <color name="onSecondaryContainerDark">#FFCFD8DC</color>
+
+    <!-- Dark Theme - Tertiary -->
+    <color name="tertiaryDark">#FFD7BBA8</color>
+    <color name="onTertiaryDark">#FF46291C</color>
+    <color name="tertiaryContainerDark">#FF604035</color>
+    <color name="onTertiaryContainerDark">#FFFBE9E0</color>
+
+    <!-- Dark Theme - Error -->
+    <color name="errorDark">#FFEF9A9A</color>
+    <color name="onErrorDark">#FF601410</color>
+    <color name="errorContainerDark">#FF8C1D18</color>
+    <color name="onErrorContainerDark">#FFF9DEDC</color>
+
+    <!-- Dark Theme - Background & Surface -->
+    <color name="backgroundDark">#FF1C1B1F</color>
+    <color name="onBackgroundDark">#FFE6E1E5</color>
+    <color name="surfaceDark">#FF1C1B1F</color>
+    <color name="onSurfaceDark">#FFE6E1E5</color>
+    <color name="surfaceVariantDark">#FF49454F</color>
+    <color name="onSurfaceVariantDark">#FFCAC4D0</color>
+
+    <!-- Dark Theme - Outline -->
+    <color name="outlineDark">#FF938F99</color>
+    <color name="outlineVariantDark">#FF49454F</color>
+
+    <!-- Standard Colors -->
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="transparent">#00000000</color>
+</resources>

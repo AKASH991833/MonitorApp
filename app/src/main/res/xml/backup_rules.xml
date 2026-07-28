@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <include domain="sharedpref" path="." />
+    <include domain="database" path="family_connect_db" />
+    <include domain="file" path="." />
+    <exclude domain="sharedpref" path="family_connect_prefs.xml" />
+</full-backup-content>

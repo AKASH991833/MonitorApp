@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.FamilyConnect" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primaryDark</item>
+        <item name="colorOnPrimary">@color/onPrimaryDark</item>
+        <item name="colorPrimaryContainer">@color/primaryContainerDark</item>
+        <item name="colorOnPrimaryContainer">@color/onPrimaryContainerDark</item>
+
+        <item name="colorSecondary">@color/secondaryDark</item>
+        <item name="colorOnSecondary">@color/onSecondaryDark</item>
+        <item name="colorSecondaryContainer">@color/secondaryContainerDark</item>
+        <item name="colorOnSecondaryContainer">@color/onSecondaryContainerDark</item>
+
+        <item name="colorTertiary">@color/tertiaryDark</item>
+        <item name="colorOnTertiary">@color/onTertiaryDark</item>
+        <item name="colorTertiaryContainer">@color/tertiaryContainerDark</item>
+        <item name="colorOnTertiaryContainer">@color/onTertiaryContainerDark</item>
+
+        <item name="colorError">@color/errorDark</item>
+        <item name="colorOnError">@color/onErrorDark</item>
+        <item name="colorErrorContainer">@color/errorContainerDark</item>
+        <item name="colorOnErrorContainer">@color/onErrorContainerDark</item>
+
+        <item name="android:colorBackground">@color/backgroundDark</item>
+        <item name="colorOnBackground">@color/onBackgroundDark</item>
+
+        <item name="colorSurface">@color/surfaceDark</item>
+        <item name="colorOnSurface">@color/onSurfaceDark</item>
+        <item name="colorSurfaceVariant">@color/surfaceVariantDark</item>
+        <item name="colorOnSurfaceVariant">@color/onSurfaceVariantDark</item>
+
+        <item name="colorOutline">@color/outlineDark</item>
+        <item name="colorOutlineVariant">@color/outlineVariantDark</item>
+
+        <item name="android:statusBarColor">@color/backgroundDark</item>
+        <item name="android:navigationBarColor">@color/backgroundDark</item>
+    </style>
+
+</resources>

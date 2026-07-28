@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Shield base -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,12L54,12C54,12 28,22 28,44L28,62C28,62 54,76 54,76C54,76 80,62 80,62L80,44C80,22 54,12 54,12Z" />
+
+    <!-- Shield outline -->
+    <path
+        android:fillColor="#1565C0"
+        android:strokeWidth="2"
+        android:strokeColor="#1565C0"
+        android:pathData="M54,16L54,16C54,16 32,25 32,44L32,60C32,60 54,72 54,72C54,72 76,60 76,60L76,44C76,25 54,16 54,16Z" />
+
+    <!-- Family icon: parent figure (left) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M40,44m-4,0a4,4 0,1 1,8 0a4,4 0,1 1,-8 0" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M34,56c0,-3.3 2.7,-6 6,-6s6,2.7 6,6v2H34v-2z" />
+
+    <!-- Family icon: child figure (right) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M62,48m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M57,57c0,-2.5 2,-4.5 4.5,-4.5s4.5,2 4.5,4.5v1.5H57v-1.5z" />
+
+    <!-- Heart between them -->
+    <path
+        android:fillColor="#FF5252"
+        android:pathData="M54,48c-1,-1.5 -3,-2 -4.5,-1s-2,2.5 -1,4l5.5,6l5.5,-6c1,-1.5 0.5,-3.5 -1,-4s-3.5,-0.5 -4.5,1z" />
+</vector>

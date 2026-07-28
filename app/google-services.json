@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "663872649103",
+    "project_id": "studio-6135479340-ea1c2",
+    "storage_bucket": "studio-6135479340-ea1c2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:663872649103:android:46263ff1603359a664fdfa",
+        "android_client_info": {
+          "package_name": "com.familyconnect.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN2nMsvPOXdjUTbif6yory59IEAz53xPA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

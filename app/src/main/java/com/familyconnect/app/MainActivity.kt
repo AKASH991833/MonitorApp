@@ -124,11 +124,11 @@ class MainActivity : ComponentActivity() {
     private fun handleDeepLink(intent: android.content.Intent?) {
         val uri = intent?.data ?: return
         val code = when {
-            uri.scheme == "https" && uri.host == "familyconnect.app" && uri.path?.startsWith("/pair") == true ->
+            uri.host == "github.com" && uri.path?.contains("/releases/download/") == true ->
                 uri.getQueryParameter("code")
             uri.scheme == "familyconnect" && uri.host == "pair" ->
                 uri.getQueryParameter("code")
-            uri.scheme == "https" && uri.host == "play.google.com" ->
+            uri.scheme == "https" && uri.host == "familyconnect.app" && uri.path?.startsWith("/pair") == true ->
                 uri.getQueryParameter("code")
             else -> null
         }

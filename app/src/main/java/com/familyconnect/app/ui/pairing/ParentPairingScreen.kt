@@ -191,9 +191,10 @@ fun ParentPairingScreen(
                     Spacer(modifier = Modifier.height(24.dp))
 
                     val context = LocalContext.current
-                    val playStoreUrl = "https://play.google.com/store/apps/details?id=com.familyconnect.app&code=$code"
-                    val qrBitmap = remember(playStoreUrl) {
-                        generateQrCode(playStoreUrl)
+                    val downloadUrl = "https://github.com/AKASH991833/MonitorApp/releases/download/v2.0.0/FamilyConnect-v2.0.0.apk"
+                    val qrContent = "$downloadUrl?code=$code"
+                    val qrBitmap = remember(qrContent) {
+                        generateQrCode(qrContent)
                     }
                     qrBitmap?.let {
                         androidx.compose.foundation.Image(
@@ -206,7 +207,7 @@ fun ParentPairingScreen(
                     Spacer(modifier = Modifier.height(8.dp))
 
                     Text(
-                        text = "Scan with Google Camera → Play Store opens\nThen open app & enter code below manually",
+                        text = "Scan with Google Camera → Chrome opens APK download\nThen install & open app, enter code below manually",
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         textAlign = TextAlign.Center
@@ -220,7 +221,7 @@ fun ParentPairingScreen(
                                 type = "text/plain"
                                 putExtra(Intent.EXTRA_TEXT,
                                     "Install Family Connect to pair with me!\n" +
-                                    "Download: https://play.google.com/store/apps/details?id=com.familyconnect.app\n" +
+                                    "Download: https://github.com/AKASH991833/MonitorApp/releases/download/v2.0.0/FamilyConnect-v2.0.0.apk\n" +
                                     "Pairing Code: $code"
                                 )
                             }
